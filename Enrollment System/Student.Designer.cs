@@ -85,12 +85,12 @@
 			this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+			this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.btnFind = new System.Windows.Forms.Button();
 			this.tbSearch = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.btDeleteByIDNumber = new System.Windows.Forms.Button();
 			this.dataGridViewStudentsList = new System.Windows.Forms.DataGridView();
-			this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.menuStrip1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -726,6 +726,16 @@
 			this.gridColumn9.VisibleIndex = 6;
 			this.gridColumn9.Width = 103;
 			// 
+			// gridColumn10
+			// 
+			this.gridColumn10.Caption = "Student Picture";
+			this.gridColumn10.FieldName = "StudentPicture";
+			this.gridColumn10.MinWidth = 25;
+			this.gridColumn10.Name = "gridColumn10";
+			this.gridColumn10.Visible = true;
+			this.gridColumn10.VisibleIndex = 7;
+			this.gridColumn10.Width = 94;
+			// 
 			// btnFind
 			// 
 			this.btnFind.BackColor = System.Drawing.Color.Azure;
@@ -765,6 +775,7 @@
 			this.btDeleteByIDNumber.TabIndex = 48;
 			this.btDeleteByIDNumber.Text = "DELETE";
 			this.btDeleteByIDNumber.UseVisualStyleBackColor = false;
+			this.btDeleteByIDNumber.Click += new System.EventHandler(this.btDeleteByIDNumber_Click_1);
 			// 
 			// dataGridViewStudentsList
 			// 
@@ -778,16 +789,6 @@
 			this.dataGridViewStudentsList.Size = new System.Drawing.Size(74, 545);
 			this.dataGridViewStudentsList.TabIndex = 47;
 			this.dataGridViewStudentsList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStudentsList_CellClick);
-			// 
-			// gridColumn10
-			// 
-			this.gridColumn10.Caption = "Student Picture";
-			this.gridColumn10.FieldName = "StudentPicture";
-			this.gridColumn10.MinWidth = 25;
-			this.gridColumn10.Name = "gridColumn10";
-			this.gridColumn10.Visible = true;
-			this.gridColumn10.VisibleIndex = 7;
-			this.gridColumn10.Width = 94;
 			// 
 			// Student
 			// 

@@ -646,7 +646,7 @@ namespace Enrollment_System
                 else
                 {
                     SaveStudent();
-
+                    //ADS
 
                     MessageBox.Show("Record Added!", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -711,6 +711,11 @@ namespace Enrollment_System
 
 				}
 			}
+		}
+
+		private void btDeleteByIDNumber_Click_1(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
