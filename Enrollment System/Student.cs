@@ -1,4 +1,6 @@
-﻿using Enrollment_System.Modules;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
+using Enrollment_System.Modules;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,7 +30,7 @@ namespace Enrollment_System
                 return false;
             }
 
-            if (control is ComboBox comboBox && comboBox.SelectedItem == null)
+            if (control is System.Windows.Forms.ComboBox comboBox && comboBox.SelectedItem == null)
             {
                 DisplayValidationError(comboBox, "Please select an option.");
                 return false;
@@ -40,7 +42,7 @@ namespace Enrollment_System
         private bool ValidateAllControls(Control container)
         {
             return container.Controls.OfType<TextBox>().All(control => ValidateControl(control)) &&
-                   container.Controls.OfType<ComboBox>().All(control => ValidateControl(control));
+                   container.Controls.OfType<System.Windows.Forms.ComboBox>().All(control => ValidateControl(control));
         }
         private void DisplayValidationError(Control control, string errorMessage)
         {
@@ -473,19 +475,33 @@ namespace Enrollment_System
 
         private void DeleteRecord()
         {
-			var selectedRowHandle = gridView1.FocusedRowHandle;
+			// Assuming gridView1 is the main view of your GridControl
+			GridView gridView = gridControl1.MainView as GridView;
 
-			if (selectedRowHandle >= 0)
+			if (gridView != null && gridView.SelectedRowsCount > 0)
 			{
-				string ID = gridView1.GetRowCellValue(selectedRowHandle, "StudentID").ToString();
+				// Get the handle of the selected row
+				int selectedRowHandle = gridView.GetSelectedRows()[0];
 
-				DialogResult result = MessageBox.Show($"Do you want to delete?\n\n{ID}", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+				// Get the value of the "StudentID" column
+				string ID = gridView.GetRowCellValue(selectedRowHandle, "StudentID").ToString();
+
+				DialogResult result = XtraMessageBox.Show($"Do you want to delete?\n\nID: {ID}", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
 				if (result == DialogResult.Yes)
 				{
+					// Assuming DeleteStudentByIDNumber is a method that deletes the record from the database
 					DeleteStudentByIDNumber(ID);
-					MessageBox.Show("Record Deleted!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+					// Delete the row from the GridView
+					gridView.DeleteRow(selectedRowHandle);
+
+					XtraMessageBox.Show("Record Deleted!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
+			}
+			else
+			{
+				XtraMessageBox.Show("Please select a record to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 
@@ -715,7 +731,8 @@ namespace Enrollment_System
 
 		private void btDeleteByIDNumber_Click_1(object sender, EventArgs e)
 		{
-
+			DeleteRecord();
+			LoadData();
 		}
 	}
 }
