@@ -151,7 +151,7 @@ namespace Enrollment_System
 
                 dataAdapter.Fill(dataTable);
 
-                dataGridViewStudentsList.DataSource = dataTable;
+              
 				gridControl1.DataSource = dataTable;
 				gridControl1.ForceInitialize();
 				gridView1.ExpandAllGroups();
@@ -366,87 +366,8 @@ namespace Enrollment_System
             MessageBox.Show("Record Added!", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
-        private void dataGridViewStudentsList_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                DataGridViewRow selectedRow = dataGridViewStudentsList.Rows[e.RowIndex];
-
-                tbStudentID.Text = selectedRow.Cells[0].Value.ToString();
-                tbLastName.Text = selectedRow.Cells[1].Value.ToString();
-                tbFirstName.Text = selectedRow.Cells[2].Value.ToString();
-                tbMiddleName.Text = selectedRow.Cells[3].Value.ToString();
-                cbCourseCode.Text = selectedRow.Cells[4].Value.ToString();
-                cbYearLevel.Text = selectedRow.Cells[5].Value.ToString();
-                cbStudentStatus.Text = selectedRow.Cells[6].Value.ToString();
-                cbGender.Text = selectedRow.Cells[7].Value.ToString();
-                dtpBirthDate.Value = Convert.ToDateTime(selectedRow.Cells[8].Value);
-                tbAddress.Text = selectedRow.Cells[9].Value.ToString();
-                tbContactNumber.Text = selectedRow.Cells[10].Value.ToString();
-                tbEmailAddress.Text = selectedRow.Cells[11].Value.ToString();
-
-                tbStudentID.ReadOnly = true;
-
-                if (tbStudentID.Text != "")
-                {
-                    btnModify.Enabled = true;
-                }
-                RetrieveImage(tbStudentID.Text);
-
-            }
-            catch
-            {
-
-            }
-        }
-        private void SearchStudent()
-        {
-            string searchKeyword = tbSearch.Text;
-
-            using (SqlConnection connection = new SqlConnection(GlobalSetting.ConnectionString))
-            {
-                connection.Open();
-
-                using (SqlCommand command = new SqlCommand())
-                {
-                    command.Connection = connection;
-
-                    // Get column names
-                    DataTable schemaTable = connection.GetSchema("Columns", new[] { null, null, "Student", null });
-
-                    // Constructing the dynamic SQL query
-                    command.CommandText = $"SELECT * FROM [stud].[Student] WHERE ";
-
-                    foreach (DataRow row in schemaTable.Rows)
-                    {
-                        string columnName = (string)row["COLUMN_NAME"];
-
-                        // Append each column to the WHERE clause
-                        command.CommandText += $"{columnName} LIKE @{columnName} OR ";
-
-                        // Add parameter for the current column
-                        command.Parameters.AddWithValue($"@{columnName}", $"%{searchKeyword}%");
-                    }
-
-                    // Remove the last 'OR' from the WHERE clause
-                    command.CommandText = command.CommandText.TrimEnd(' ', 'O', 'R');
-
-                    // Create a DataTable to store the search results
-                    DataTable searchResults = new DataTable();
-
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                    {
-                        // Fill the DataTable with the search results
-                        adapter.Fill(searchResults);
-                    }
-
-                    // Bind the DataTable to the DataGridView
-                    dataGridViewStudentsList.DataSource = searchResults;
-                }
-
-
-            }
-        }
+        
+        
         private void DeleteStudentByIDNumber(string paramStudentID)
         {
             string connectionString = GlobalSetting.ConnectionString;
@@ -510,11 +431,7 @@ namespace Enrollment_System
             DeleteRecord();
             LoadData();
         }
-
-        private void btnFind_Click(object sender, EventArgs e)
-        {
-            SearchStudent();
-        }
+      
 
         private void tbContactNumber_KeyPress(object sender, KeyPressEventArgs e)
         {

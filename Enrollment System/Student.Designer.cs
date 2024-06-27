@@ -86,11 +86,7 @@
 			this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
-			this.btnFind = new System.Windows.Forms.Button();
-			this.tbSearch = new System.Windows.Forms.TextBox();
-			this.label3 = new System.Windows.Forms.Label();
 			this.btDeleteByIDNumber = new System.Windows.Forms.Button();
-			this.dataGridViewStudentsList = new System.Windows.Forms.DataGridView();
 			this.menuStrip1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -99,7 +95,6 @@
 			this.tabPage2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentsList)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// fileToolStripMenuItem
@@ -578,11 +573,7 @@
 			// tabPage2
 			// 
 			this.tabPage2.Controls.Add(this.gridControl1);
-			this.tabPage2.Controls.Add(this.btnFind);
-			this.tabPage2.Controls.Add(this.tbSearch);
-			this.tabPage2.Controls.Add(this.label3);
 			this.tabPage2.Controls.Add(this.btDeleteByIDNumber);
-			this.tabPage2.Controls.Add(this.dataGridViewStudentsList);
 			this.tabPage2.Location = new System.Drawing.Point(4, 25);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -593,10 +584,10 @@
 			// 
 			// gridControl1
 			// 
-			this.gridControl1.Location = new System.Drawing.Point(60, 113);
+			this.gridControl1.Location = new System.Drawing.Point(42, 89);
 			this.gridControl1.MainView = this.gridView1;
 			this.gridControl1.Name = "gridControl1";
-			this.gridControl1.Size = new System.Drawing.Size(1027, 545);
+			this.gridControl1.Size = new System.Drawing.Size(1155, 569);
 			this.gridControl1.TabIndex = 62;
 			this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -736,59 +727,17 @@
 			this.gridColumn10.VisibleIndex = 7;
 			this.gridColumn10.Width = 94;
 			// 
-			// btnFind
-			// 
-			this.btnFind.BackColor = System.Drawing.Color.Azure;
-			this.btnFind.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnFind.Location = new System.Drawing.Point(776, 69);
-			this.btnFind.Name = "btnFind";
-			this.btnFind.Size = new System.Drawing.Size(90, 34);
-			this.btnFind.TabIndex = 61;
-			this.btnFind.Text = "FIND";
-			this.btnFind.UseVisualStyleBackColor = false;
-			// 
-			// tbSearch
-			// 
-			this.tbSearch.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.tbSearch.Location = new System.Drawing.Point(124, 73);
-			this.tbSearch.Name = "tbSearch";
-			this.tbSearch.Size = new System.Drawing.Size(652, 28);
-			this.tbSearch.TabIndex = 50;
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(56, 79);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(66, 19);
-			this.label3.TabIndex = 49;
-			this.label3.Text = "Search";
-			// 
 			// btDeleteByIDNumber
 			// 
 			this.btDeleteByIDNumber.BackColor = System.Drawing.Color.Red;
 			this.btDeleteByIDNumber.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btDeleteByIDNumber.Location = new System.Drawing.Point(947, 49);
+			this.btDeleteByIDNumber.Location = new System.Drawing.Point(1057, 31);
 			this.btDeleteByIDNumber.Name = "btDeleteByIDNumber";
 			this.btDeleteByIDNumber.Size = new System.Drawing.Size(140, 52);
 			this.btDeleteByIDNumber.TabIndex = 48;
 			this.btDeleteByIDNumber.Text = "DELETE";
 			this.btDeleteByIDNumber.UseVisualStyleBackColor = false;
 			this.btDeleteByIDNumber.Click += new System.EventHandler(this.btDeleteByIDNumber_Click_1);
-			// 
-			// dataGridViewStudentsList
-			// 
-			this.dataGridViewStudentsList.AllowUserToAddRows = false;
-			this.dataGridViewStudentsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridViewStudentsList.Location = new System.Drawing.Point(1102, 113);
-			this.dataGridViewStudentsList.Margin = new System.Windows.Forms.Padding(20);
-			this.dataGridViewStudentsList.Name = "dataGridViewStudentsList";
-			this.dataGridViewStudentsList.RowHeadersWidth = 51;
-			this.dataGridViewStudentsList.RowTemplate.Height = 24;
-			this.dataGridViewStudentsList.Size = new System.Drawing.Size(74, 545);
-			this.dataGridViewStudentsList.TabIndex = 47;
-			this.dataGridViewStudentsList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStudentsList_CellClick);
 			// 
 			// Student
 			// 
@@ -813,10 +762,8 @@
 			this.panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picBoxStudentImage)).EndInit();
 			this.tabPage2.ResumeLayout(false);
-			this.tabPage2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentsList)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -866,15 +813,11 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox tbStudentID;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox tbSearch;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btDeleteByIDNumber;
-        private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.PictureBox picBoxStudentImage;
         private System.Windows.Forms.Button btnGetPhoto;
 		private DevExpress.XtraGrid.GridControl gridControl1;
 		private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-		public System.Windows.Forms.DataGridView dataGridViewStudentsList;
 		private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
 		private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
 		private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;

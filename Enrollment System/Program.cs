@@ -17,7 +17,7 @@ namespace Enrollment_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Student());
+            Application.Run(new MainMenu2());
             //string connectionString = "Data Source=(localdb)\\Local; Initial Catalog=IT3232Javellana; User ID=IT3119; Password=Javellana24";
              
             //{
